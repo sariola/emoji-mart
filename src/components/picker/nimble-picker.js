@@ -551,18 +551,6 @@ export default class NimblePicker extends React.PureComponent {
         aria-label={title}
         onKeyDown={this.handleKeyDown}
       >
-        <div className="emoji-mart-bar">
-          <Anchors
-            ref={this.setAnchorsRef}
-            data={this.data}
-            i18n={this.i18n}
-            color={color}
-            categories={this.categories}
-            onAnchorClick={this.handleAnchorClick}
-            icons={this.icons}
-          />
-        </div>
-
         <Search
           ref={this.setSearchRef}
           onSearch={this.handleSearch}
@@ -574,7 +562,6 @@ export default class NimblePicker extends React.PureComponent {
           custom={this.CUSTOM}
           autoFocus={autoFocus}
         />
-
         <div
           ref={this.setScrollRef}
           className="emoji-mart-scroll"
@@ -623,35 +610,6 @@ export default class NimblePicker extends React.PureComponent {
             )
           })}
         </div>
-
-        {(showPreview || showSkinTones) && (
-          <div className="emoji-mart-bar">
-            <Preview
-              ref={this.setPreviewRef}
-              data={this.data}
-              title={title}
-              emoji={emoji}
-              showSkinTones={showSkinTones}
-              showPreview={showPreview}
-              emojiProps={{
-                native: native,
-                size: 38,
-                skin: skin,
-                set: set,
-                sheetSize: sheetSize,
-                sheetColumns: sheetColumns,
-                sheetRows: sheetRows,
-                backgroundImageFn: backgroundImageFn,
-              }}
-              skinsProps={{
-                skin: skin,
-                onChange: this.handleSkinChange,
-                skinEmoji: skinEmoji,
-              }}
-              i18n={this.i18n}
-            />
-          </div>
-        )}
       </section>
     )
   }
